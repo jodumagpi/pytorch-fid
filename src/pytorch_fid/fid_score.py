@@ -264,13 +264,7 @@ def main(paths=None):
     else:
         device = torch.device(args.device)
          
-    if paths is None:
-        fid_value = calculate_fid_given_paths(args.path,
-                                          args.batch_size,
-                                          device,
-                                          args.dims)
-    else:
-        fid_value = calculate_fid_given_paths(paths,
+    fid_value = calculate_fid_given_paths(args.path,
                                           args.batch_size,
                                           device,
                                           args.dims)
