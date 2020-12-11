@@ -269,6 +269,8 @@ def main(paths=None):
                                           device,
                                           args.dims)
     print('FID: ', fid_value)
+      
+    return fid_value
 
 
 if __name__ == '__main__':
