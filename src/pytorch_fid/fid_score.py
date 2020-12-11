@@ -256,15 +256,21 @@ def calculate_fid_given_paths(paths, batch_size, device, dims):
     return fid_value
 
 
-def main():
+def main(paths=None):
     args = parser.parse_args()
 
     if args.device is None:
         device = torch.device('cuda' if (torch.cuda.is_available()) else 'cpu')
     else:
         device = torch.device(args.device)
-
-    fid_value = calculate_fid_given_paths(args.path,
+         
+    if paths is None:
+        fid_value = calculate_fid_given_paths(args.path,
+                                          args.batch_size,
+                                          device,
+                                          args.dims)
+    else:
+        fid_value = calculate_fid_given_paths(paths,
                                           args.batch_size,
                                           device,
                                           args.dims)
